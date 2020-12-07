@@ -1,14 +1,23 @@
-import React, { Component } from 'react'
-
-export default class Nav extends Component {
+import React, { Component } from "react";
+import getTopics from '../api/api-req';
+class Nav extends Component {
   state = {
-    topics: [],
-  }
+    topics: []
+  };
 
   componentDidMount() {
-    
-  }
+    console.log(this.state)
+    getTopics().then(() => {
+      this.setState({  });
+    });
+ }
   render() {
-    return <nav></nav>
+    return (
+      <nav>
+       
+      </nav>
+    );
   }
 }
+
+export default Nav;
