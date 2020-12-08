@@ -20,7 +20,7 @@ class Nav extends Component {
     if(this.state.isLoading) {
       return <p>Loading...</p>
     }
-      <h5>Topics</h5>;
+      <h5>Topics:</h5>;
     //console.log(this.state)
     const {topics} = this.state;
    //console.log('topics', topics)

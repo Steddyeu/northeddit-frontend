@@ -19,15 +19,18 @@ export default class Articles extends Component {
     }
     const { articles } = this.state;
 
-    console.log('comp stte -->', this.state);
-
     return (
       <div>
-        <p>Hello from Articles</p>
+        <h1>All Articles</h1>
         {articles.map((article) => (
-          <div className="articles-card">
-            <p>{article.title}</p>
-            <p>{article.body}</p>
+          <div className="articles-card" key={article.article_id}>
+            {console.log(article)}
+            <p>title: {article.title}</p>
+            <p>topic: {article.topic}</p>
+            <p>votes: {article.votes}</p>
+            <p>author: {article.author}</p>
+            <p>comment count: {article.comment_count}</p>
+            <p>created at: {article.created_at}</p>
           </div>
         ))}
       </div>
