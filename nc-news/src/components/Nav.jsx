@@ -1,20 +1,22 @@
 import React, { Component } from "react";
-import getTopics from '../api/api-req';
+import * as api from '../api/api-req';
+
 class Nav extends Component {
   state = {
     topics: []
   };
 
   componentDidMount() {
-    console.log(this.state)
-    getTopics().then(() => {
-      this.setState({  });
+    //console.log('this.state -->', this.state.topics)
+    //console.log(topics)
+    api.getTopics().then((topics) => {
+      this.setState({ topics });
     });
  }
   render() {
     return (
       <nav>
-       
+       456789
       </nav>
     );
   }
