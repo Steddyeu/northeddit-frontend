@@ -13,16 +13,16 @@ export const getAllArticles = () => {
   return axios
     .get("https://ed-fe-nc-news-api.herokuapp.com/api/articles")
     .then((res) => {
-      //console.log('res -->', res.data)
+     // console.log('res -->', res.data)
       return res.data.articles;
     });
 };
 
-// export const getArticleByArticleId = (id) => {
-//   return axios
-//     .get(`https://ed-fe-nc-news-api.herokuapp.com/api/articles/${id}`)
-//     .then((res) => {
-//       //console.log('res -->', res.data)
-//       //return res.data.articles;
-//     });
-// };
+export const getArticleByArticleId = (id) => {
+  return axios
+    .get(`https://ed-fe-nc-news-api.herokuapp.com/api/articles/${id}`)
+    .then((res) => {
+      console.log('res -->', res.data)
+      return res.data.article
+    });
+};
