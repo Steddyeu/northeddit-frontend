@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import * as api from "../api/api-req";
+
 export default class Articles extends Component {
   state = {
     articles: [],
@@ -21,10 +22,10 @@ export default class Articles extends Component {
 
     return (
       <div>
-        <h1>All Articles</h1>
+        <h1 className='header-subhead'>All Articles</h1>
         {articles.map((article) => (
           <div className="articles-card" key={article.article_id}>
-            {console.log(article)}
+            {/*console.log(article)*/}
             <p>title: {article.title}</p>
             <p>topic: {article.topic}</p>
             <p>votes: {article.votes}</p>

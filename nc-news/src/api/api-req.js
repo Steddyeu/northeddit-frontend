@@ -22,7 +22,15 @@ export const getArticleByArticleId = (id) => {
   return axios
     .get(`https://ed-fe-nc-news-api.herokuapp.com/api/articles/${id}`)
     .then((res) => {
-      console.log('res -->', res.data)
+     // console.log('res -->', res.data)
       return res.data.article
     });
 };
+
+export const getCommentsByArticleId = (article_id) => {
+  return axios.get(`https://ed-fe-nc-news-api.herokuapp.com/api/articles/${article_id}/comments`)
+  .then((res) => {
+   // console.log('res -->', res)
+    return res.data.comments;
+  })
+}

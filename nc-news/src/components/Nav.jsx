@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as api from '../api/api-req';
-
+import {Link} from '@reach/router';
 class Nav extends Component {
   state = {
     topics: [],
@@ -20,16 +20,15 @@ class Nav extends Component {
     if(this.state.isLoading) {
       return <p>Loading...</p>
     }
-      <h5>Topics:</h5>;
     //console.log(this.state)
     const {topics} = this.state;
    //console.log('topics', topics)
     //return (<nav></nav>)
     return (
-      <nav>
-        <h5>Topics</h5>
+      <nav className='nav-bar-container'>
+        <h4 className='topics-header'>Topics</h4>
         {topics.map((topic) => (
-            <button>{topic.slug}</button>
+            <Link className='topic-links' key={topic.slug} to={`api/articles/${topic.slug}`}>{topic.slug}</Link>
           
         ))}
       </nav>
