@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../api/api-req";
 import Comments from '../components/Comments';
+import { Link } from '@reach/router';
 
 export default class Article extends Component {
   state = {
@@ -23,18 +24,18 @@ export default class Article extends Component {
 
     const { article } = this.state;
     return (
-      <div className="articles-card">
-        <p>title: {article.title}</p>
-        <p>topic: {article.topic}</p>
-        <p>body: {article.body}</p>
+      <div>
+      <Link to='/api/articles'> <button>Return to main page</button></Link>
+      <div className="single-articles-card">
+          <p className='author-time'> <em className='author-time-em'>created by: </em>{article.author} <em className='author-time-em'>at:</em> {article.created_at} <div className='topic'>Topic: <strong>{article.topic}</strong></div></p>
+          <p className='art-title'>{article.title}</p>
+        <p> {article.body}</p>
         <p>votes: {article.votes}</p>
-        <p>author: {article.author}</p>
-        <p>comment count: {article.comment_count}</p>
-        <p>created at: {article.created_at}</p>
-
+          <p className='article-footer'>comments {article.comment_count}...💬</p>
         <div>
           <Comments article_id={this.state.article_id} />
         </div>
+      </div>
       </div>
     );
   }
