@@ -178,3 +178,7 @@
   border-width: 2px;
   border-color: rgb(255, 140, 0);
 }
+
+.del-comment-button:hover {
+color: tomato;
+}

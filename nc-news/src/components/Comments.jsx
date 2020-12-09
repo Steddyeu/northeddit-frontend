@@ -27,10 +27,11 @@ export default class Comments extends Component {
       <div>
       {comments.map((comment) => (
         <div className='comment-card' key={comment.comment_id}>
-        <p>author: {comment.author}</p>
-        <p>created at: {comment.created_at}</p>
-        <p>body: {comment.body}</p>
-        <p>votes: {comment.votes}</p>
+        
+          <p className='author-time'><em className='author-time-em'>created by: </em>{comment.author} <em className='author-time-em'>at:</em> {comment.created_at} </p>
+        <p>{comment.body}</p>
+        <p>votes:{comment.votes}</p>
+        <button className='del-comment-button'>delete comment</button>
 <div>
 
 </div>
