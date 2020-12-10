@@ -2,17 +2,29 @@ import React, { Component } from "react";
 import * as api from "../api/api-req";
 
 export default class Vote extends Component {
-  state = { votes: this.props.votes, hasVoted: false, vote_change: 1 };
+  state = {
+    votes: this.props.votes,
+    hasVoted: false,
+    vote_change: 1,
+    vote_down: -1,
+  };
 
-  
-
-  
   handleClick = () => {
     const { article_id } = this.props;
-   // console.log("handleClick-->", article_id);
+    // console.log("handleClick-->", article_id);
     api.upVoteArticle(article_id);
     this.setState((currentState) => {
       const newState = { votes: currentState.votes + currentState.vote_change };
+      return newState;
+    });
+  };
+
+  handleClickDown = () => {
+    const { article_id } = this.props;
+     console.log("handleClick-->", article_id);
+    api.downVoteArticle(article_id);
+    this.setState((currentState) => {
+      const newState = { votes: currentState.votes - currentState.vote_change };
       return newState;
     });
   };
@@ -25,7 +37,7 @@ export default class Vote extends Component {
       <div>
         <button onClick={this.handleClick}>⬆️</button>
         <p>{this.state.votes}</p>
-        <button onClick={() => this.handleDown}>⬇️</button>
+        <button onClick={this.handleClickDown}>⬇️</button>
       </div>
     );
   }

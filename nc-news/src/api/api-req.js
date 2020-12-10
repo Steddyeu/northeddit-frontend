@@ -28,7 +28,7 @@ export const getArticleByArticleId = (id) => {
 };
 
 export const getCommentsByArticleId = (article_id) => {
-  console.log("artId-->", article_id);
+  //console.log("artId-->", article_id);
   return NcNewsApi.get(`/articles/${article_id}/comments`).then((res) => {
     // console.log('res -->', res)
     return res.data.comments;
@@ -40,17 +40,16 @@ export const upVoteArticle = (article_id) => {
   return NcNewsApi.patch(`/articles/${article_id}`, { inc_votes: 1 });
 };
 
-// export const downVoteArticle = (article_id) => {
-//   return axios
-//     .get(`https://ed-fe-nc-news-api.herokuapp.com/api/articles/${article_id}`, {vote: 1})
+export const downVoteArticle = (article_id) => {
+  return NcNewsApi.patch(`/articles/${article_id}`, { inc_votes: -1 });
+};
 
+
+export const postComment = (article_id) => {
+  return NcNewsApi.post(`/articles/${article_id}/comments`);
+}
+
+
+// export const deleteComment = (article_id) => {
+//   return NcNewsApi.delete(`/articles/${article_id}/comments`);
 // }
-
-//SORTBY
-// export const sortByRecent= () => {
-//   return axios
-//     .get(`https://ed-fe-nc-news-api.herokuapp.com/api/articles?`)
-//     .then((res) => {
-//       console.log('downvote --->', res)
-//     })
-// }  make a query?????
