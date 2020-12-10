@@ -32,7 +32,7 @@ export default class AddComments extends Component {
             placeholder="comment..."
           ></textarea>
         </label>
-        <button type="submit">Submit comment</button>
+        <button className='gen-buttons' type="submit">Submit comment</button>
       </form>
     );
   }

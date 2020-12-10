@@ -35,9 +35,9 @@ export default class Vote extends Component {
 
     return (
       <div>
-        <button onClick={this.handleClick}>⬆️</button>
-        <p>{this.state.votes}</p>
-        <button onClick={this.handleClickDown}>⬇️</button>
+        <button className='vote-plus' onClick={this.handleClick}>➕</button>
+        <p className='votes'>votes {this.state.votes}</p>
+        <button className='vote-minus' onClick={this.handleClickDown}>➖</button>
       </div>
     );
   }

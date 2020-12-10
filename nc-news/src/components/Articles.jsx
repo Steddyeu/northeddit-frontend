@@ -3,6 +3,7 @@ import * as api from "../api/api-req";
 import { Link } from "@reach/router";
 import Vote from "./Vote";
 import SortBy from "./SortBy";
+
 export default class Articles extends Component {
   state = {
     articles: [],
@@ -26,7 +27,7 @@ export default class Articles extends Component {
     return (
       <div>
       <div className='sub-header-container'>
-        <h1 className="header-subhead">All Articles</h1>
+        <h1 className="header-subhead">Current Articles</h1>
         <SortBy />
       </div>
         {articles.map((article) => (

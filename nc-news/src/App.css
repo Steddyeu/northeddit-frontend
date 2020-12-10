@@ -1,12 +1,11 @@
 .App {
   text-align: center;
-  background-color: rgb(245, 245, 245);
+  /*background-color: #FFEFD5;*/
+ /* background-color: rgb(245, 245, 245);*/
+   background-color: aliceblue;
+
   width: 100%;
 }
-/*  2d2115 
-  background: linear-gradient(to bottom, #bcc6cc, #eee, #bcc6cc);
-
-*/
 
 .App-logo {
   height: 40vmin;
@@ -28,6 +27,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  width: 100%;
 }
 
 .App-link {
@@ -48,6 +48,8 @@
 .header-container {
   background-color: #2f2b2b;
   flex-direction: row;
+  padding-bottom: 10px;
+  margin-bottom: -21px;
 }
 
 .page-header {
@@ -62,12 +64,16 @@
 
 /* Nav.jsx */
 .topics-header {
+  padding-top: 20px;
+  margin-top: 0px;
+  font-size: 20px;
   color: rgb(187, 105, 4);
+  width: 100%;
 }
 
 .nav-bar-container {
-  margin-bottom: 1em;
-  background-color: black;
+  background-color: rgb(24, 24, 24);
+  padding-bottom: 14px;
 }
 
 .topic-links {
@@ -77,12 +83,20 @@
   background-color: orangered;
   border-radius: 5px;
   text-align: center;
+  font-weight: bold;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
 }
 
 /* Articles.jsx */
 .header-subhead {
   color: rgb(187, 105, 4);
   font-weight: 200px;
+  margin-top: 0px;
+  padding-top: 20px;
 }
 
 .article-card {
@@ -101,6 +115,7 @@
   width: 600px;
   max-width: 100%;
   padding: 10px;
+  width: 60%;
 }
 .article-card:hover {
   border: solid;
@@ -153,7 +168,7 @@
   margin-right: auto;
   margin-top: 20px;
   margin-bottom: auto;
-  width: 600px;
+  width: 60%;
   max-width: 100%;
   padding: 10px;
 }
@@ -162,10 +177,8 @@
 
 .comments-container {
   width: auto;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
 
+  max-width: 100%;
 }
 .comment-card {
   border: solid;
@@ -191,10 +204,22 @@
   border-color: rgb(255, 140, 0);
 }
 
-.del-comment-button:hover {
-  color: tomato;
+.votes {
+  font-weight: bold;
+}
+.vote-plus,
+.vote-minus {
+  border-radius: 20px;
 }
 
+.vote-plus:hover {
+  border-color: rgb(173, 255, 47);
+  background-color: rgb(34, 139, 34);
+}
+.vote-minus:hover {
+  border-color: rgb(255, 0, 0);
+  background-color: rgb(178, 34, 34);
+}
 /* AddComment.jsx */
 .add-comment-form {
   border: solid;
@@ -214,5 +239,35 @@
   width: 600px;
   max-width: 100%;
   padding: 10px;
+}
 
+/* Misc*/
+
+.gen-buttons {
+  border-radius: 12px;
+  margin-left: 1em;
+  padding: 10px 24px;
+  margin-top: 5px;
+}
+.gen-buttons:hover {
+  color: rgb(255, 140, 0);
+  background-color: papayawhip;
+  border-color: rgb(255, 140, 0);
+}
+
+.all-art-link {
+  color: white;
+  margin-left: 1em;
+  padding: auto;
+  background-color: black;
+  border: solid;
+  border-color: whitesmoke;
+  border-width: 1px;
+  border-radius: 10px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  padding-top: 9px;
+  padding-left: 13px;
+  padding-right: 13px;
+  text-decoration: none;
 }

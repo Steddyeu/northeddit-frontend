@@ -25,10 +25,14 @@ export default class Comments extends Component {
         }
       })
     })
-    //invoke api func, to post to database,
-    //once it comes back, got the additional keys such as votes etc
-    //setState all comments + new comment. 
   };
+
+
+deleteComment = (comment_id) => {
+  this.setState((previousState) => {
+  })
+}
+
 
   render() {
     //console.log('COMMENTS -->', this.props)
@@ -50,11 +54,11 @@ export default class Comments extends Component {
             </p>
             <p>{comment.body}</p>
             <div>
-              <button>⬆️</button>
-              <p>Votes {comment.votes}</p>
-              <button>⬇️</button>
+              <button className='vote-plus'>➕</button>
+              <p className='votes'>Votes {comment.votes}</p>
+              <button className='vote-minus'>➖</button>
             </div>
-            <button className="del-comment-button">delete comment</button>
+            <button className="gen-buttons" onClick={() => this.deleteComment(comment.comment_id)}>delete comment</button>
             <div></div>
           </div>
         ))}

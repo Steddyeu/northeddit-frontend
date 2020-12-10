@@ -53,6 +53,6 @@ export const postComment = (newComment, article_id) => {
   );
 };
 
-// export const deleteComment = (article_id) => {
-//   return NcNewsApi.delete(`/articles/${article_id}/comments`);
-// }
+export const deleteComment = (comment_id) => {
+  return NcNewsApi.delete(`/articles/comments/${comment_id}`);
+}
