@@ -6,8 +6,8 @@ export default function SortBy(props) {
     <div>
       <button ClassName= 'sort-by'>Most recent</button>
       <button ClassName='sort-by'>Oldest</button>
-      <button ClassName='sort-by'>Most Voted</button>
-      <button ClassName='sort-by'>Least Voted</button>
+      <button ClassName='sort-by'>Highest Votes</button>
+      <button ClassName='sort-by'>Lowest Votes</button>
     </div>
   )
 }

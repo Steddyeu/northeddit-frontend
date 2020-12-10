@@ -13,8 +13,9 @@ function App() {
       <Nav />
       <Router>
         <Articles path='/' />
-        <Article path='api/articles/:article_id'/>
-        <Comments path = 'api/articles/:articleid/comments' />
+        <Articles path='/:topics' />
+        <Article path='/articles/:article_id'/>
+        <Comments path = '/articles/:articleid/comments' />
       </Router>
     </div>
   );

@@ -30,7 +30,11 @@ export default class Comments extends Component {
         
           <p className='author-time'><em className='author-time-em'>created by: </em>{comment.author} <em className='author-time-em'>at:</em> {comment.created_at} </p>
         <p>{comment.body}</p>
-        <p>votes:{comment.votes}</p>
+          <div>
+            <button>⬆️</button>
+            <p>Votes {comment.votes}</p>
+            <button>⬇️</button>
+          </div>
         <button className='del-comment-button'>delete comment</button>
 <div>
 

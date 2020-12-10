@@ -15,6 +15,10 @@ export default class Articles extends Component {
     });
   }
 
+//componentDidUpdate() {}
+
+
+
   render() {
     if (this.state.isLoading) {
       return <p>Loading...</p>;
@@ -38,7 +42,7 @@ export default class Articles extends Component {
             </p>
             <Link
               className="art-title"
-              to={`/api/articles/${article.article_id}`}
+              to={`/articles/${article.article_id}`}
             >
               <p>{article.title}</p>
             </Link>
@@ -58,7 +62,7 @@ export default class Articles extends Component {
             <div className="article-footer">
               <Link
                 className="article-footer"
-                to={`/api/articles/${article.article_id}`}
+                to={`/articles/${article.article_id}`}
               >
                 <p>comments {article.comment_count}...💬</p>
               </Link>

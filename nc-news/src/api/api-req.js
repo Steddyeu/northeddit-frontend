@@ -23,7 +23,7 @@ export const getAllArticles = () => {
       return res.data.articles;
     });
 };
-
+//, { params: { topic: this.props.topic } })
 export const getArticleByArticleId = (id) => {
   return axios
     .get(`https://ed-fe-nc-news-api.herokuapp.com/api/articles/${id}`)
