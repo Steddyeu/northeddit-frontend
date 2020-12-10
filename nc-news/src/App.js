@@ -13,9 +13,9 @@ function App() {
       <Nav />
       <Router>
         <Articles path='/' />
-        <Articles path='/:topics' />
+        <Articles path='/:topic' />
         <Article path='/articles/:article_id'/>
-        <Comments path = '/articles/:articleid/comments' />
+        <Comments path = '/articles/:article_id/comments' />
       </Router>
     </div>
   );

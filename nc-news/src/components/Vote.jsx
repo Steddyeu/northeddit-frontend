@@ -1,34 +1,32 @@
-import React, { Component } from 'react'
-import * as api from '../api/api-req';
+import React, { Component } from "react";
+import * as api from "../api/api-req";
+
 export default class Vote extends Component {
-  state = {hasVoted:false, vote_change: 0}
+  state = { votes: this.props.votes, hasVoted: false, vote_change: 1 };
 
+  
 
-
-handleClickUp = (event) => {
-  const {vote} = this.props;
-  //console.log(vote)
-api.upVoteArticle(vote)
-  this.setState({hasVoted:true, vote_change: 1})
-}
-
-  // handleClickDown = (event) => {
-  //   const { vote } = this.props;
-  //   console.log(vote)
-  //   api.downVoteArticle(vote)
-  //   this.setState({ hasVoted: true, vote_change: -1 })
-  // }
+  
+  handleClick = () => {
+    const { article_id } = this.props;
+   // console.log("handleClick-->", article_id);
+    api.upVoteArticle(article_id);
+    this.setState((currentState) => {
+      const newState = { votes: currentState.votes + currentState.vote_change };
+      return newState;
+    });
+  };
 
   render() {
-    //console.log(this.props)
-    const {votes} = this.props
+    //console.log('vote', this.props)
+    //const { votes } = this.props;
 
     return (
       <div>
-        <button onClick={this.handleClickUp}>⬆️</button>
-      <p>{votes}</p>
-        <button onClick={this.handleDown}>⬇️</button>
+        <button onClick={this.handleClick}>⬆️</button>
+        <p>{this.state.votes}</p>
+        <button onClick={() => this.handleDown}>⬇️</button>
       </div>
-    )
+    );
   }
 }

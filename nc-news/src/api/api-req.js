@@ -1,62 +1,50 @@
-import axios from "axios"; 
+import axios from "axios";
 
-
-// const instance = axios.create({
-//   baseURL: 'https://ed-fe-nc-news-api.herokuapp.com/api',
-
-// })
+const NcNewsApi = axios.create({
+  baseURL: "https://ed-fe-nc-news-api.herokuapp.com/api",
+});
 
 export const getTopics = () => {
-  return axios
-  .get('https://ed-fe-nc-news-api.herokuapp.com/api/topics')
-  .then((res) => {
+  return NcNewsApi.get("/topics").then((res) => {
     //console.log('res -->', topics.data)
     return res.data.topics;
-  })
-}
-
-export const getAllArticles = () => {
-  return axios
-    .get("https://ed-fe-nc-news-api.herokuapp.com/api/articles")
-    .then((res) => {
-     // console.log('res -->', res.data)
-      return res.data.articles;
-    });
+  });
 };
-//, { params: { topic: this.props.topic } })
+
+export const getAllArticles = (topic) => {
+  return NcNewsApi.get("/articles", { params: { topic: topic } }).then(
+    (res) => {
+      // console.log('res -->', res.data)
+      return res.data.articles;
+    }
+  );
+};
+
 export const getArticleByArticleId = (id) => {
-  return axios
-    .get(`https://ed-fe-nc-news-api.herokuapp.com/api/articles/${id}`)
-    .then((res) => {
-     // console.log('res -->', res.data)
-      return res.data.article
-    });
+  return NcNewsApi.get(`/articles/${id}`).then((res) => {
+    // console.log('res -->', res.data)
+    return res.data.article;
+  });
 };
 
 export const getCommentsByArticleId = (article_id) => {
-  return axios.get(`https://ed-fe-nc-news-api.herokuapp.com/api/articles/${article_id}/comments`)
-  .then((res) => {
-   // console.log('res -->', res)
+  console.log("artId-->", article_id);
+  return NcNewsApi.get(`/articles/${article_id}/comments`).then((res) => {
+    // console.log('res -->', res)
     return res.data.comments;
-  })
-}
+  });
+};
 
 //VOTES
 export const upVoteArticle = (article_id) => {
-  return axios
-    .get(`https://ed-fe-nc-news-api.herokuapp.com/api/articles/${article_id}`)
-    .then((res) => {
-      console.log('upVote--->', res)
-    })
-}
+  return NcNewsApi.patch(`/articles/${article_id}`, { inc_votes: 1 });
+};
 
-export const downVoteArticle = (article_id) => {
-  return axios
-    .get(`https://ed-fe-nc-news-api.herokuapp.com/api/articles/${article_id}`)
-    .then((res) => {
-      console.log('downvote --->', res)
-    })
-}
+// export const downVoteArticle = (article_id) => {
+//   return axios
+//     .get(`https://ed-fe-nc-news-api.herokuapp.com/api/articles/${article_id}`, {vote: 1})
+
+// }
 
 //SORTBY
 // export const sortByRecent= () => {

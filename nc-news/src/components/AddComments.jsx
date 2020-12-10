@@ -5,7 +5,7 @@ export default class AddComments extends Component {
 
   render() {
     return (
-      <form>
+      <form className='add-comment'>
       <p>add comment:</p>
       <label>
       <textarea type='text' placeholder='comment...' />

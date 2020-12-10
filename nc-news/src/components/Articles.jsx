@@ -18,7 +18,6 @@ export default class Articles extends Component {
 //componentDidUpdate() {}
 
 
-
   render() {
     if (this.state.isLoading) {
       return <p>Loading...</p>;
@@ -26,8 +25,10 @@ export default class Articles extends Component {
     const { articles } = this.state;
     return (
       <div>
+      <div className='sub-header-container'>
         <h1 className="header-subhead">All Articles</h1>
         <SortBy />
+      </div>
         {articles.map((article) => (
           <div className="article-card" key={article.article_id}>
             {/*console.log(article)*/}
@@ -58,13 +59,13 @@ export default class Articles extends Component {
               publishing software like Aldus PageMaker including versions of
               Lorem Ipsum.
             </p>
-            <Vote votes={article.votes} />
+            <Vote article_id={article.article_id} votes={article.votes} />
             <div className="article-footer">
               <Link
                 className="article-footer"
                 to={`/articles/${article.article_id}`}
               >
-                <p>comments {article.comment_count}...💬</p>
+                <p>{article.comment_count} comments...💬</p>
               </Link>
             </div>
           </div>

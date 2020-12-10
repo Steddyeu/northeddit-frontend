@@ -10,21 +10,23 @@ export default class Comments extends Component {
 
   componentDidMount() {
    // console.log('this.props-->', this.props)
-    api.getCommentsByArticleId(this.props.articleid).then((comments) => {
+    api.getCommentsByArticleId(this.props.article_id).then((comments) => {
       this.setState({ comments, isLoading: false });
     });
   }
 
 
   render() {
+console.log('COMMENTS -->', this.props)
+
     if (this.state.isLoading) {
-      return <p>Loading...</p>;
+      return <p>Comments Loading...</p>;
     }
     const {comments} = this.state;
    // console.log('this.state--->', this.state)
-<AddComments />
     return (
       <div>
+        <AddComments />     
       {comments.map((comment) => (
         <div className='comment-card' key={comment.comment_id}>
         

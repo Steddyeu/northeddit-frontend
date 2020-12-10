@@ -19,7 +19,7 @@ export default class Article extends Component {
 
   render() {
     if (this.state.isLoading) {
-      return <p>Comments loading...</p>;
+      return <p>article loading...</p>;
     }
 
     const { article } = this.state;
@@ -31,10 +31,10 @@ export default class Article extends Component {
           <p className='author-time'> <em className='author-time-em'>created by: </em>{article.author} <em className='author-time-em'>at:</em> {article.created_at} <div className='topic'>Topic: <strong>{article.topic}</strong></div></p>
           <p className='art-title'>{article.title}</p>
         <p> {article.body}</p>
-          <Vote votes={article.votes} />
-          <p className='article-footer'>comments {article.comment_count}...💬</p>
+          <Vote article_id={article.article_id} votes={article.votes} />
+          <p className='article-footer'>{article.comment_count} comments...💬</p>
         <div>
-          <Comments comments={article.article_id} />
+            <Comments article_id={article.article_id} comments={article.article_id} />
         </div>
       </div>
       </div>
