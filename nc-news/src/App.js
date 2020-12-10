@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Nav />
       <Router>
-        <Articles path='api/articles' />
+        <Articles path='/' />
         <Article path='api/articles/:article_id'/>
         <Comments path = 'api/articles/:articleid/comments' />
       </Router>

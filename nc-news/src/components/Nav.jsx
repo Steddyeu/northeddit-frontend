@@ -28,7 +28,7 @@ class Nav extends Component {
       <nav className='nav-bar-container'>
         <h4 className='topics-header'>Topics</h4>
         {topics.map((topic) => (
-            <Link className='topic-links' key={topic.slug} to={`api/articles/${topic.slug}`}>{topic.slug}</Link>
+            <Link className='topic-links' key={topic.slug} to={`/${topic.slug}`}>{topic.slug}</Link>
           
         ))}
       </nav>

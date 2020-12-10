@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: rgb(245, 245, 245);
+  width: 100%;
 }
 /*  2d2115 
   background: linear-gradient(to bottom, #bcc6cc, #eee, #bcc6cc);

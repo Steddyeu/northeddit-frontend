@@ -1,5 +1,11 @@
 import axios from "axios"; 
 
+
+// const instance = axios.create({
+//   baseURL: 'https://ed-fe-nc-news-api.herokuapp.com/api',
+
+// })
+
 export const getTopics = () => {
   return axios
   .get('https://ed-fe-nc-news-api.herokuapp.com/api/topics')
@@ -34,3 +40,29 @@ export const getCommentsByArticleId = (article_id) => {
     return res.data.comments;
   })
 }
+
+//VOTES
+export const upVoteArticle = (article_id) => {
+  return axios
+    .get(`https://ed-fe-nc-news-api.herokuapp.com/api/articles/${article_id}`)
+    .then((res) => {
+      console.log('upVote--->', res)
+    })
+}
+
+export const downVoteArticle = (article_id) => {
+  return axios
+    .get(`https://ed-fe-nc-news-api.herokuapp.com/api/articles/${article_id}`)
+    .then((res) => {
+      console.log('downvote --->', res)
+    })
+}
+
+//SORTBY
+// export const sortByRecent= () => {
+//   return axios
+//     .get(`https://ed-fe-nc-news-api.herokuapp.com/api/articles?`)
+//     .then((res) => {
+//       console.log('downvote --->', res)
+//     })
+// }  make a query?????
