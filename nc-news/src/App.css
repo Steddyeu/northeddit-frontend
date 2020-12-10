@@ -115,7 +115,7 @@
   width: 600px;
   max-width: 100%;
   padding: 10px;
-  width: 60%;
+  width: 97%;
 }
 .article-card:hover {
   border: solid;
@@ -227,7 +227,7 @@
   border: solid;
   border-width: 3px;
   border-color: grey;
-  background-color: paleturquoise;
+  background-color:  orangered;
   width: auto;
   border-radius: 4px;
   color: #282c34;
@@ -257,6 +257,7 @@
 
 .all-art-link {
   color: white;
+  font-size: 14px;
   margin-left: 1em;
   padding: auto;
   background-color: black;
@@ -264,7 +265,6 @@
   border-color: whitesmoke;
   border-width: 1px;
   border-radius: 10px;
-  font-weight: bold;
   padding-bottom: 10px;
   padding-top: 9px;
   padding-left: 13px;
