@@ -15,7 +15,20 @@ export default class Comments extends Component {
     });
   }
 
-  addComment = (commentToPost) => {};
+  addComment = (commentToPost) => {
+    console.log(commentToPost)
+       const {article_id} = this.props
+    api.postComment(commentToPost, article_id).then((newComment) => {
+      this.setState(currentState => {
+        return{
+          comments: [newComment, ...currentState.comments]
+        }
+      })
+    })
+    //invoke api func, to post to database,
+    //once it comes back, got the additional keys such as votes etc
+    //setState all comments + new comment. 
+  };
 
   render() {
     //console.log('COMMENTS -->', this.props)

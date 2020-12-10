@@ -44,11 +44,14 @@ export const downVoteArticle = (article_id) => {
   return NcNewsApi.patch(`/articles/${article_id}`, { inc_votes: -1 });
 };
 
-
-export const postComment = (article_id) => {
-  return NcNewsApi.post(`/articles/${article_id}/comments`);
-}
-
+export const postComment = (newComment, article_id) => {
+  return NcNewsApi.post(`/articles/${article_id}/comments`, newComment).then(
+    ({ data }) => {
+      console.log("data", data);
+      return data.comment;
+    }
+  );
+};
 
 // export const deleteComment = (article_id) => {
 //   return NcNewsApi.delete(`/articles/${article_id}/comments`);

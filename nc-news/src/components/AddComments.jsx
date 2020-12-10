@@ -5,8 +5,15 @@ export default class AddComments extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("event-->", event);
-    console.log("event.target-->", event.target);
+    const { addComment } = this.props;
+    const { body, username } = this.state;
+    addComment({ body, username });
+  };
+
+  handleChange = (event) => {
+    //console.log(event.target.value);
+    const { value } = event.target;
+    this.setState({ body: value });
   };
 
   render() {
@@ -15,13 +22,15 @@ export default class AddComments extends Component {
         <p>add comment:</p>
         <label>
           <textarea
+            rows="4"
+            cols="50"
             type="text"
             name="body"
             id="body"
             value={this.state.body}
             onChange={this.handleChange}
             placeholder="comment..."
-          />
+          ></textarea>
         </label>
         <button type="submit">Submit comment</button>
       </form>
