@@ -23,7 +23,7 @@ export default class AddComments extends Component {
         <label>
           <textarea
             rows="4"
-            cols="50"
+            cols="40"
             type="text"
             name="body"
             id="body"

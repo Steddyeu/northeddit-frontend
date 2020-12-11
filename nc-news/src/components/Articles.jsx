@@ -11,8 +11,9 @@ export default class Articles extends Component {
   };
 
   componentDidMount() {
-    console.log('mount', this.props)
-    api.getAllArticles().then((articles) => {
+    const {topic} = this.props
+    
+    api.getAllArticles(topic).then((articles) => {
       this.setState({ articles, isLoading: false });
     });
   }

@@ -32,7 +32,15 @@ export default class Comments extends Component {
 deleteComment(comment_id) {
   console.log('delcomm', comment_id)
   api.removeComment(comment_id);
-  this.setState({isDeleted: true})
+  this.setState(currentState => {
+    currentState.comments.filter(delComment => {
+     if(comment_id === delComment.comment_id) 
+     return false;
+    })
+    return {
+      comments: [false, ...currentState.comments]
+    }
+  })
 }
 
 
@@ -58,7 +66,7 @@ deleteComment(comment_id) {
             <div>
               <CommentVote comment_id={comment.comment_id} votes={comment.votes} />
             </div>
-            <button className="gen-buttons" onClick={() => this.deleteComment(this.comment.comment_id)}>delete comment</button>
+            <button className="gen-buttons" onClick={() => this.deleteComment(comment.comment_id)}>delete comment</button>
             <div></div>
           </div>
         ))}
