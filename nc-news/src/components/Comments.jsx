@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import * as api from "../api/api-req";
 import AddComments from "../components/AddComments";
-
+import CommentVote from './CommentVote';
 export default class Comments extends Component {
   state = {
     comments: [],
     isLoading: true,
+    isDeleted: false,
   };
 
   componentDidMount() {
@@ -28,9 +29,10 @@ export default class Comments extends Component {
   };
 
 
-deleteComment = (comment_id) => {
-  this.setState((previousState) => {
-  })
+deleteComment(comment_id) {
+  console.log('delcomm', comment_id)
+  api.removeComment(comment_id);
+  this.setState({isDeleted: true})
 }
 
 
@@ -54,11 +56,9 @@ deleteComment = (comment_id) => {
             </p>
             <p>{comment.body}</p>
             <div>
-              <button className='vote-plus'>➕</button>
-              <p className='votes'>Votes {comment.votes}</p>
-              <button className='vote-minus'>➖</button>
+              <CommentVote comment_id={comment.comment_id} votes={comment.votes} />
             </div>
-            <button className="gen-buttons" onClick={() => this.deleteComment(comment.comment_id)}>delete comment</button>
+            <button className="gen-buttons" onClick={() => this.deleteComment(this.comment.comment_id)}>delete comment</button>
             <div></div>
           </div>
         ))}

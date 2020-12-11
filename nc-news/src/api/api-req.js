@@ -12,12 +12,13 @@ export const getTopics = () => {
 };
 
 export const getAllArticles = (topic) => {
-  return NcNewsApi.get("/articles", { params: { topic: topic } }).then(
-    (res) => {
-      // console.log('res -->', res.data)
-      return res.data.articles;
-    }
-  );
+  return NcNewsApi.get("/articles", {
+    params: { topic: topic, limit: 50 },
+  })
+  .then((res) => {
+    // console.log('res -->', res.data)
+    return res.data.articles;
+  });
 };
 
 export const getArticleByArticleId = (id) => {
@@ -35,6 +36,9 @@ export const getCommentsByArticleId = (article_id) => {
   });
 };
 
+export const getUser = (username) => {
+  return NcNewsApi.get(`/users/${username}`);
+}
 //VOTES
 export const upVoteArticle = (article_id) => {
   return NcNewsApi.patch(`/articles/${article_id}`, { inc_votes: 1 });
@@ -44,15 +48,30 @@ export const downVoteArticle = (article_id) => {
   return NcNewsApi.patch(`/articles/${article_id}`, { inc_votes: -1 });
 };
 
+export const commentUpVote = (article_id) => {
+  return NcNewsApi.patch(`/articles/${article_id}/comments`, { inc_votes: 1 });
+};
+
+export const commentDownVote = (article_id) => {
+  return NcNewsApi.patch(`/articles/${article_id}/comments`, { inc_votes: 1 });
+};
+
 export const postComment = (newComment, article_id) => {
   return NcNewsApi.post(`/articles/${article_id}/comments`, newComment).then(
     ({ data }) => {
-      console.log("data", data);
+     // console.log("data", data);
       return data.comment;
     }
   );
 };
 
-export const deleteComment = (comment_id) => {
-  return NcNewsApi.delete(`/articles/comments/${comment_id}`);
-}
+export const removeComment = (comment_id) => {
+  return NcNewsApi.delete(`/comments/${comment_id}`).then((delCount)=> {
+    console.log('delcount', delCount)
+    return delCount;
+  })
+};
+
+
+//SORTBY 
+

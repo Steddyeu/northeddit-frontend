@@ -11,25 +11,41 @@ export default class Articles extends Component {
   };
 
   componentDidMount() {
+    console.log('mount', this.props)
     api.getAllArticles().then((articles) => {
       this.setState({ articles, isLoading: false });
     });
   }
 
-//componentDidUpdate() {}
+  // componentDidUpdate(prevProps, prevState) {
+  //   const newTopic = prevProps.slug !== this.props.topic;
+  //   if (newTopic) {
+  //     api.getAllArticles(this.props.slug).then((articles) => {
+  //       this.setState({ articles });
+  //     });
+  //   }
+  // }
+
+ //sortByMostRecent
+ //sortByOldest
+ //sortByHigestVotes
+ //sortByLowestVotes
 
 
   render() {
     if (this.state.isLoading) {
       return <p>Loading...</p>;
     }
+
+    //const { topic } = this.props;
+   // console.log("this.props", topic);
     const { articles } = this.state;
     return (
       <div>
-      <div className='sub-header-container'>
-        <h1 className="header-subhead">Current Articles</h1>
-        <SortBy />
-      </div>
+        <div className="sub-header-container">
+          <h1 className="header-subhead">Current Articles</h1>
+          <SortBy sortByDateDesc={this.sortByDateAsc} />
+        </div>
         {articles.map((article) => (
           <div className="article-card" key={article.article_id}>
             {/*console.log(article)*/}
@@ -42,10 +58,7 @@ export default class Articles extends Component {
                 Topic: <strong>{article.topic}</strong>
               </div>
             </p>
-            <Link
-              className="art-title"
-              to={`/articles/${article.article_id}`}
-            >
+            <Link className="art-title" to={`/articles/${article.article_id}`}>
               <p>{article.title}</p>
             </Link>
             <p>
