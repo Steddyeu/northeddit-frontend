@@ -33,9 +33,8 @@ deleteComment(comment_id) {
   console.log('delcomm', comment_id)
   api.removeComment(comment_id);
   this.setState(currentState => {
-    currentState.comments.filter(delComment => {
-     if(comment_id === delComment.comment_id) 
-     return false;
+    currentState.comments.filter((delComment) => {
+     if(comment_id === delComment.comment_id) return false;
     })
     return {
       comments: [false, ...currentState.comments]

@@ -9,15 +9,17 @@ import React, { Component } from 'react'
 
 export default class App extends Component {
   state ={ 
-    user: 'jessjelly',
+    loggedInUser: 'jessjelly',
   }
 
   
   render() {
+    const {loggedInUser} = this.state
+    
     return (
       <div className="App">
         <Header />
-        <Nav />
+        <Nav loggedInUser={loggedInUser}/>
         <Router>
           <Articles path='/' />
           <Articles path='/:topic' />

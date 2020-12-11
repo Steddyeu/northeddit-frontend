@@ -22,10 +22,15 @@ class Nav extends Component {
     }
     //console.log(this.state)
     const { topics } = this.state;
+    const {loggedInUser} = this.props
     //console.log('topics', topics)
     //return (<nav></nav>)
     return (
       <nav className="nav-bar-container">
+        <div className='user-welcome'>
+          <p>You are logged in as:</p>
+          <p> {loggedInUser}!</p>
+      </div>
         <h4 className="topics-header">Topics</h4>
         {topics.map((topic) => (
           <Link className="topic-links" key={topic.slug} to={`/${topic.slug}`}>

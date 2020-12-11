@@ -11,41 +11,71 @@ export default class Articles extends Component {
   };
 
   componentDidMount() {
-    const {topic} = this.props
-    
+    const { topic } = this.props;
+
     api.getAllArticles(topic).then((articles) => {
       this.setState({ articles, isLoading: false });
     });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    const newTopic = prevProps.slug !== this.props.topic;
+    if (newTopic) {
+      api.getAllArticles(this.props.slug).then((articles) => {
+        this.setState({ articles });
+      });
+    }
+  }
   // componentDidUpdate(prevProps, prevState) {
-  //   const newTopic = prevProps.slug !== this.props.topic;
-  //   if (newTopic) {
-  //     api.getAllArticles(this.props.slug).then((articles) => {
-  //       this.setState({ articles });
-  //     });
-  //   }
+
   // }
+  //sortByMostRecent
+  //sortByOldest
+  //sortByHigestVotes
+  //sortByLowestVotes
 
- //sortByMostRecent
- //sortByOldest
- //sortByHigestVotes
- //sortByLowestVotes
+  sortByDateAsc() {
+    api.getSortByDateAsc().then((sorted) => {
+      console.log('----->', sorted)
+      this.setState({ articles: sorted, isLoading: false });
+    });
+  }
 
+  sortByDateDesc() {
+    api.getSortByDateDesc().then((sorted) => {
+      //console.log('----->', sorted)
+    });
+  }
+
+  sortByVoteAsc() {
+    api.getSortByVotesAsc().then((sorted) => {
+      //console.log('----->', sorted)
+    });
+  }
+
+  sortByVoteDesc() {
+    api.getSortByVotesDesc().then((sorted) => {
+      //console.log("----->", sorted);
+    });
+  }
 
   render() {
     if (this.state.isLoading) {
       return <p>Loading...</p>;
     }
-
     //const { topic } = this.props;
-   // console.log("this.props", topic);
+    // console.log("this.props", topic);
     const { articles } = this.state;
     return (
       <div>
         <div className="sub-header-container">
           <h1 className="header-subhead">Current Articles</h1>
-          <SortBy sortByDateDesc={this.sortByDateAsc} />
+          <SortBy
+            sortByDateAsc={this.sortByDateAsc}
+            sortByDateDesc={this.sortByDateDesc}
+            sortByVoteAsc={this.sortByVoteAsc}
+            sortByVoteDesc={this.sortByVoteDesc}
+          />
         </div>
         {articles.map((article) => (
           <div className="article-card" key={article.article_id}>

@@ -1,8 +1,8 @@
 .App {
   text-align: center;
   /*background-color: #FFEFD5;*/
- /* background-color: rgb(245, 245, 245);*/
-   background-color: aliceblue;
+  /* background-color: rgb(245, 245, 245);*/
+  background-color: aliceblue;
 
   width: 100%;
 }
@@ -91,6 +91,20 @@
   width: 100%;
 }
 
+.user-welcome {
+  border: solid;
+  border-color: whitesmoke;
+  border-width: 1px;
+  font-weight: bolder;
+  padding-bottom: 5px;
+  color: whitesmoke;
+  width:15%;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5%;
+  font-size: 10px;
+}
 /* Articles.jsx */
 .header-subhead {
   color: rgb(187, 105, 4);
@@ -227,7 +241,7 @@
   border: solid;
   border-width: 3px;
   border-color: grey;
-  background-color:  orangered;
+  background-color: orangered;
   width: auto;
   border-radius: 4px;
   color: #282c34;
