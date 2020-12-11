@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from "@reach/router";
-import * as api from "../api/api-req";
-
 export default function SortBy(props) {
   //console.log('sortby props', props)
 

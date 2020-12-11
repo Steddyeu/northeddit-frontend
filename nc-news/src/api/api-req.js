@@ -1,5 +1,4 @@
 import axios from "axios";
-import SortBy from "../components/SortBy";
 
 const NcNewsApi = axios.create({
   baseURL: "https://ed-fe-nc-news-api.herokuapp.com/api",
