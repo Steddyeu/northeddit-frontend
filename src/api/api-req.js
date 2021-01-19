@@ -88,9 +88,9 @@ export const getSortByDateDesc = () => {
      return res.data.articles;
     }
   );
-};
+}; 
 
-export const getSortByVotesAsc = () => {
+export const getSortByVotesDesc = () => {
   return NcNewsApi.get(`/articles?&sort_by=votes&order=desc`).then((res) => {
     // console.log(res.data.articles)
     return res.data.articles;
@@ -98,7 +98,7 @@ export const getSortByVotesAsc = () => {
   });
 };
 
-export const getSortByVotesDesc = () => {
+export const getSortByVotesAsc = () => {
   return NcNewsApi.get(`/articles?&sort_by=votes&order=asc`).then((res) => {
     // console.log(res.data.articles)
     return res.data.articles;

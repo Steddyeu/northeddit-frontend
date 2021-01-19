@@ -19,7 +19,7 @@ export default class Articles extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-   // console.log(prevProps.topic, this.props.topic)
+    // console.log(prevProps.topic, this.props.topic)
     const newTopic = prevProps.topic !== this.props.topic;
     if (newTopic) {
       api.getAllArticles(this.props.topics).then((articles) => {
@@ -27,31 +27,37 @@ export default class Articles extends Component {
       });
     }
   }
- 
-  sortByDateAsc() {
+
+  //refactor into one function. 
+  
+  sortByDateAsc = () => {
     api.getSortByDateAsc().then((sorted) => {
+      //  console.log('----->', sorted)
+      this.setState({ articles: sorted, isLoading: false });
+    });
+  };
+
+  sortByDateDesc = () => {
+    api.getSortByDateDesc().then((sorted) => {
       //console.log('----->', sorted)
       this.setState({ articles: sorted, isLoading: false });
     });
-  }
+  };
 
-  sortByDateDesc() {
-    api.getSortByDateDesc().then((sorted) => {
-      //console.log('----->', sorted)
-    });
-  }
-
-  sortByVoteAsc() {
-    api.getSortByVotesAsc().then((sorted) => {
-      //console.log('----->', sorted)
-    });
-  }
-
-  sortByVoteDesc() {
+  sortByVoteAsc = () => {
     api.getSortByVotesDesc().then((sorted) => {
-      //console.log("----->", sorted);
+      //console.log('----->', sorted)
+      this.setState({ articles: sorted, isLoading: false });
     });
-  }
+  };
+
+  
+  sortByVoteDesc = () => {
+    api.getSortByVotesAsc().then((sorted) => {
+      //console.log("----->", sorted);
+      this.setState({ articles: sorted, isLoading: false });
+    });
+  };
 
   render() {
     if (this.state.isLoading) {

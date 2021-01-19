@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../api/api-req";
 import AddComments from "./AddComments";
-import CommentVote from './CommentVote';
+import CommentVote from "./CommentVote";
 export default class Comments extends Component {
   state = {
     comments: [],
@@ -17,35 +17,29 @@ export default class Comments extends Component {
   }
 
   addComment = (commentToPost) => {
-    console.log(commentToPost)
-       const {article_id} = this.props
+    console.log(commentToPost);
+    const { article_id } = this.props;
     api.postComment(commentToPost, article_id).then((newComment) => {
-      this.setState(currentState => {
-        return{
-          comments: [newComment, ...currentState.comments]
-        }
-      })
-    })
+      this.setState((currentState) => {
+        return {
+          comments: [newComment, ...currentState.comments],
+        };
+      });
+    });
   };
 
-
-deleteComment(comment_id) {
-  console.log('delcomm', comment_id)
-  api.removeComment(comment_id);
-  this.setState(currentState => {
-    currentState.comments.filter((delComment) => {
-     if(comment_id === delComment.comment_id) {
-       return false
-     } else {
-       
-     }
-    })
-    return {
-      comments: [false, ...currentState.comments]
-    }
-  })
-}
-
+  deleteComment(comment_id) {
+    console.log("delcomm", comment_id);
+    api.removeComment(comment_id);
+    this.setState((currentState) => {
+      const newComments = currentState.comments.filter((comment) => {
+        return comment_id !== comment.comment_id;
+      });
+      return {
+        comments: newComments,
+      };
+    });
+  }
 
   render() {
     //console.log('COMMENTS -->', this.props)
@@ -67,9 +61,17 @@ deleteComment(comment_id) {
             </p>
             <p>{comment.body}</p>
             <div>
-              <CommentVote comment_id={comment.comment_id} votes={comment.votes} />
+              <CommentVote
+                comment_id={comment.comment_id}
+                votes={comment.votes}
+              />
             </div>
-            <button className="gen-buttons" onClick={() => this.deleteComment(comment.comment_id)}>delete comment</button>
+            <button
+              className="gen-buttons"
+              onClick={() => this.deleteComment(comment.comment_id)}
+            >
+              delete comment
+            </button>
             <div></div>
           </div>
         ))}
