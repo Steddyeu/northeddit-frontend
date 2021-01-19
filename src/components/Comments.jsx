@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../api/api-req";
-import AddComments from "../components/AddComments";
+import AddComments from "./AddComments";
 import CommentVote from './CommentVote';
 export default class Comments extends Component {
   state = {
@@ -34,7 +34,11 @@ deleteComment(comment_id) {
   api.removeComment(comment_id);
   this.setState(currentState => {
     currentState.comments.filter((delComment) => {
-     if(comment_id === delComment.comment_id) return false;
+     if(comment_id === delComment.comment_id) {
+       return false
+     } else {
+       
+     }
     })
     return {
       comments: [false, ...currentState.comments]

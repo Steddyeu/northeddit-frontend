@@ -19,24 +19,18 @@ export default class Articles extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const newTopic = prevProps.slug !== this.props.topic;
+   // console.log(prevProps.topic, this.props.topic)
+    const newTopic = prevProps.topic !== this.props.topic;
     if (newTopic) {
-      api.getAllArticles(this.props.slug).then((articles) => {
+      api.getAllArticles(this.props.topics).then((articles) => {
         this.setState({ articles });
       });
     }
   }
-  // componentDidUpdate(prevProps, prevState) {
-
-  // }
-  //sortByMostRecent
-  //sortByOldest
-  //sortByHigestVotes
-  //sortByLowestVotes
-
+ 
   sortByDateAsc() {
     api.getSortByDateAsc().then((sorted) => {
-      console.log('----->', sorted)
+      //console.log('----->', sorted)
       this.setState({ articles: sorted, isLoading: false });
     });
   }

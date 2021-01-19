@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../api/api-req";
-import Comments from '../components/Comments';
+import Comments from './Comments';
 import { Link } from '@reach/router';
 import Vote from './Vote';
 import ErrorMessage from './ErrorMessage'
