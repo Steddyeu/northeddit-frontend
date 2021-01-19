@@ -9,8 +9,8 @@
 /* Header.jsx */
 .header-container {
   background-color: #2f2b2b;
-  /* flex-direction: row;
-  padding-bottom: 10px; */
+  flex-direction: row;
+  padding-bottom: 10px;
   margin-bottom: -21px;
 }
 
@@ -36,6 +36,7 @@
 .nav-bar-container {
   background-color: rgb(24, 24, 24);
   padding-bottom: 14px;
+
 }
 
 .topic-links {
@@ -75,10 +76,10 @@
 }
 /* Articles.jsx */
 .header-subhead {
+  margin-top: 0px;
   color: rgb(187, 105, 4);
   font-weight: 200px;
-  margin-top: 0px;
-  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 .article-card {
@@ -160,7 +161,7 @@
 /* comments.jsx */
 
 .comments-container {
-  width: auto;
+  width: 100%;
 
   max-width: 100%;
 }
