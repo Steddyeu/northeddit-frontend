@@ -15,16 +15,18 @@ export default class Vote extends Component {
     api.upVoteArticle(article_id);
     this.setState((currentState) => {
       const newState = { votes: currentState.votes + currentState.vote_change };
+      this.hasVoted = true;
       return newState;
     });
   };
 
   handleClickDown = () => {
     const { article_id } = this.props;
-     console.log("handleClick-->", article_id);
+    console.log("handleClick-->", article_id);
     api.downVoteArticle(article_id);
     this.setState((currentState) => {
       const newState = { votes: currentState.votes - currentState.vote_change };
+      this.hasVoted = true;
       return newState;
     });
   };
@@ -35,9 +37,13 @@ export default class Vote extends Component {
 
     return (
       <div>
-        <button className='vote-plus' onClick={this.handleClick}>➕</button>
-        <p className='votes'>votes {this.state.votes}</p>
-        <button className='vote-minus' onClick={this.handleClickDown}>➖</button>
+        <button className="vote-plus" onClick={this.handleClick}>
+          ➕
+        </button>
+        <p className="votes">votes {this.state.votes}</p>
+        <button className="vote-minus" onClick={this.handleClickDown}>
+          ➖
+        </button>
       </div>
     );
   }
