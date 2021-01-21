@@ -1,27 +1,17 @@
 # Notheddit 
  
- A full-stack application that is a facsimilie version of Reddit.  
- T
-week three sprint
+ A full-stack application (reddit clone) of a blog site.   
+
+Here is a link to the hosted version: https://northeddit.netlify.app/ 
+Backend code for my API: https://github.com/Steddyeu/be-nc-news 
+
+# Made with
+ - React
+ - CSS 
+ -Axios 
 
 
-Link to live hosted version = "#"
-Link to backend code = "#"
-Link to the hosted api that I built = "#"
-
-How to run
-
-Clone the below repo:
-git clone link ="#"
-
-Install node packages:
-npm install
-
-cd into the correct folder, and type the command:
-
-npm start
-
-Features 
+# Features of Northeddit
 Responsive design to be used on devices of varying size. 
 View all articles.
 View individual Article.
